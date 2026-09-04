@@ -1,0 +1,88 @@
+/* ============================================================
+   Skate Flow — Shared Styles
+   Design system: "Elevated Street" / Soft-Brutalism (Urban Kinetic)
+   ============================================================ */
+
+:root {
+    /* Grain/noise texture used as background or fixed overlay */
+    --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Noise as a fixed full-screen overlay (div) */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    background-image: var(--noise);
+}
+
+/* Noise as a body background */
+.bg-noise {
+    background-image: var(--noise);
+}
+
+/* Soft-Brutalism utilities (Alugar) */
+.brutal-border {
+    border: 2px solid #121212;
+}
+.brutal-shadow {
+    box-shadow: 4px 4px 0px 0px #121212;
+}
+.brutal-shadow-hover:hover {
+    box-shadow: 2px 2px 0px 0px #121212;
+    transform: translate(2px, 2px);
+}
+.brutal-input {
+    border: 2px solid #121212;
+    background-color: transparent;
+}
+.brutal-input:focus {
+    outline: none;
+    box-shadow: 4px 4px 0px 0px #121212;
+}
+
+/* Brutal shadows (Dashboard) */
+.shadow-brutal {
+    box-shadow: 4px 4px 0px 0px rgba(27, 28, 28, 1);
+}
+.shadow-brutal-hover:hover {
+    box-shadow: 4px 4px 0px 0px rgba(27, 28, 28, 1);
+    transform: translate(-2px, -2px);
+    transition: all 0.2s ease;
+}
+
+/* Stencil borders (Encerrar / Fechar Caixa) */
+.stencil-border {
+    border: 2px solid #1b1c1c;
+}
+.stencil-border-focus:focus-within {
+    box-shadow: 6px 6px 0px 0px rgba(27, 28, 28, 1);
+    transform: translate(-2px, -2px);
+    transition: all 0.2s ease;
+}
+.neo-brutal-shadow {
+    box-shadow: 4px 4px 0px 0px #1b1c1c;
+}
+.content-relative {
+    position: relative;
+    z-index: 10;
+}
+
+/* Custom checkbox (Encerrar — damage) */
+.street-checkbox:checked + div {
+    background-color: #ff6b00;
+    border-color: #1b1c1c;
+}
+.street-checkbox:checked + div svg {
+    display: block;
+}
+
+/* Custom radio (Encerrar — payment method) */
+.street-radio:checked + div {
+    background-color: #ff6b00;
+    border-color: #1b1c1c;
+}

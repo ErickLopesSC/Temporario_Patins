@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Skate Flow - Encerrar Aluguel</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/tailwind.config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-background text-on-background bg-noise font-body-md text-body-md min-h-screen flex antialiased overflow-hidden">
+
+    <!-- Copie a Sidebar do item 2, modifique o "Ativo" para a opção de Encerrar -->
+    <nav id="sidebar" class="hidden md:flex bg-surface-container-lowest h-screen w-64 border-r-2 border-on-surface fixed left-0 top-0 flex-col z-50 transition-all duration-300">
+        <!-- Sidebar Header (Idêntico) -->
+        <div id="sidebar-header" class="p-6 border-b-2 border-on-surface flex flex-col items-center gap-3 transition-all duration-300">
+            <a href="index.html" class="block">
+                <img id="sidebar-logo" class="w-24 h-24 object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy6BpICyX9WCkKzI55pNRjP1LYeJDMtKC3zdc9SNwuxQoVbcYdvlvYcZCoIHrNbuB80b3wH9Z6-og0zsXwWCr4qCqiEvxTTeoVkuXmFMWksqfRwhTF0SfqIEYEZv5PIIMfrSUCylryZxNZy_ndiKNk0Ym13DMoz2Q-8mmPJ1EMtHsYZQO4GUlAesk08jwPlKObSFBOOZi4gnS_F68mSFGleYufw_i_Mxg17N58JMlKSwpUnHtitCPM">
+            </a>
+            <div id="sidebar-title" class="text-center overflow-hidden transition-all duration-300">
+                <h1 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tighter leading-none whitespace-nowrap">SKATE FLOW</h1>
+            </div>
+        </div>
+        
+        <div class="flex-1 py-4 flex flex-col gap-2 px-2 overflow-y-auto overflow-x-hidden">
+            <a href="alugar.html" class="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container border-2 border-on-surface shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all justify-center mb-4 mx-2" title="Novo Aluguel">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                <span class="sidebar-text font-headline-md text-headline-md uppercase whitespace-nowrap">Novo</span>
+            </a>
+            
+            <a class="flex items-center gap-3 p-3 text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors border-2 border-transparent hover:border-on-surface mx-2 group" href="index.html" title="Início">
+                <span class="material-symbols-outlined shrink-0 group-hover:scale-110 transition-transform">dashboard</span>
+                <span class="sidebar-text font-headline-md text-headline-md uppercase whitespace-nowrap">Início</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors border-2 border-transparent hover:border-on-surface mx-2 group" href="alugar.html" title="Alugar">
+                <span class="material-symbols-outlined shrink-0 group-hover:scale-110 transition-transform">shopping_cart</span>
+                <span class="sidebar-text font-headline-md text-headline-md uppercase whitespace-nowrap">Alugar</span>
+            </a>
+            <!-- Aqui a aba ENCERRAR está Ativa -->
+            <a class="flex items-center gap-3 p-3 text-on-surface bg-surface-container-high transition-colors border-2 border-on-surface mx-2 group" href="encerrar.html" title="Encerrar">
+                <span class="material-symbols-outlined shrink-0 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">timer_off</span>
+                <span class="sidebar-text font-headline-md text-headline-md uppercase whitespace-nowrap">Encerrar</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors border-2 border-transparent hover:border-on-surface mx-2 group" href="fechar-caixa.html" title="Fechar Caixa">
+                <span class="material-symbols-outlined shrink-0 group-hover:scale-110 transition-transform">point_of_sale</span>
+                <span class="sidebar-text font-headline-md text-headline-md uppercase whitespace-nowrap">Fechar Caixa</span>
+            </a>
+        </div>
+        
+        <!-- Sidebar Footer (Idêntico) -->
+        <div class="p-4 border-t-2 border-on-surface flex flex-col gap-2 bg-surface-container-lowest overflow-hidden">
+            <div class="flex items-center gap-3 mb-2 px-2 shrink-0">
+                <img class="w-10 h-10 rounded-full border-2 border-on-surface object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCW-E6NYsGrAfEq0uWAteLkR7X6_SlFeJTEYa69wW7RmP4bTJXfm4Aa2M6JaJsuxiz5Nn9fCkqLSiuMlHIe2Ehy6FtXvgsVvy_9xC2B38Q8Abxj6HKIu6wes0XTicN8WR7Ptv_lTCMM_Y_H3L03laloPKANnjLHjtNsPGXWvhltNPPR7Q_ZNK_RmEgFsTxkom3LjdTVCyg35xEf_G1286m2Qrw2muNoGfjzwCR52azd31swdnrVDKm">
+                <div class="sidebar-text flex flex-col">
+                    <span class="font-label-bold text-label-bold text-on-surface truncate w-32">Alex Santos</span>
+                </div>
+            </div>
+            <!-- ... botoes de config e sair idênticos ... -->
+            <a class="flex items-center gap-3 p-3 text-secondary hover:bg-surface-container-high hover:text-on-surface transition-colors border-2 border-transparent hover:border-on-surface mx-2 group" href="#">
+                <span class="material-symbols-outlined shrink-0 group-hover:scale-110 transition-transform">settings</span>
+                <span class="sidebar-text font-headline-md text-headline-md uppercase whitespace-nowrap">Configurações</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 text-error hover:bg-error-container hover:text-on-error-container transition-colors border-2 border-transparent hover:border-error mx-2 group" href="#">
+                <span class="material-symbols-outlined shrink-0 group-hover:scale-110 transition-transform">logout</span>
+                <span class="sidebar-text font-headline-md text-headline-md uppercase whitespace-nowrap">Sair</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- WRAPPER UNIFICADO -->
+    <div id="main-content" class="flex-1 flex flex-col md:ml-64 h-screen transition-all duration-300 overflow-y-auto">
+        <!-- HEADER IDÊNTICA (Mesmo código do item 2) -->
+        <header class="bg-surface w-full h-16 border-b-2 border-on-surface flex justify-between items-center px-4 md:px-margin-desktop sticky top-0 z-40 shrink-0">
+            <!-- (Conteúdo da header mantido 100% igual) -->
+            <div class="flex items-center gap-4">
+                <button id="toggle-sidebar" class="text-on-surface hover:text-primary transition-colors p-2 flex items-center justify-center">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="font-headline-md text-headline-md font-bold text-on-surface uppercase tracking-wide">
+                    Skate Flow System
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex items-center border-b-2 border-on-surface px-2 py-1 focus-within:border-primary transition-colors">
+                    <span class="material-symbols-outlined text-secondary mr-2">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-body-md font-body-md w-32 focus:w-48 transition-all placeholder-secondary outline-none" placeholder="Buscar..." type="text">
+                </div>
+                <button class="text-secondary hover:text-primary transition-colors p-2 relative">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-primary-container rounded-full border border-surface"></span>
+                </button>
+                <button class="text-secondary hover:text-primary transition-colors p-2 hidden sm:block">
+                    <span class="material-symbols-outlined">help_outline</span>
+                </button>
+                <img class="sm:hidden w-8 h-8 rounded-full border-2 border-on-surface object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCW-E6NYsGrAfEq0uWAteLkR7X6_SlFeJTEYa69wW7RmP4bTJXfm4Aa2M6JaJsuxiz5Nn9fCkqLSiuMlHIe2Ehy6FtXvgsVvy_9xC2B38Q8Abxj6HKIu6wes0XTicN8WR7Ptv_lTCMM_Y_H3L03laloPKANnjLHjtNsPGXWvhltNPPR7Q_ZNK_RmEgFsTxkom3LjdTVCyg35xEf_G1286m2Qrw2muNoGfjzwCR52azd31swdnrVDKm">
+            </div>
+        </header>
+
+        <main class="flex-1 p-margin-mobile md:p-margin-desktop bg-transparent flex justify-center items-start">
+            <div class="w-full max-w-container-max flex flex-col pb-12">
+                <div class="mb-8 flex justify-between items-end border-b-4 border-on-surface pb-4">
+                    <div>
+                        <h2 class="font-display-lg text-display-lg text-on-background uppercase leading-none tracking-tighter">Encerrar Aluguel</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Finalize a sessão e processe o pagamento.</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <span class="material-symbols-outlined text-6xl text-surface-dim">timer_off</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                    <!-- Esquerda: Busca & Detalhes -->
+                    <div class="flex flex-col gap-gutter">
+                        <div class="bg-surface-container-lowest border-2 border-on-surface p-6 shadow-brutal relative">
+                            <label class="block font-label-bold text-label-bold text-on-surface uppercase mb-3" for="skate-id">Buscar Par de Patins</label>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <div class="relative flex-1">
+                                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-secondary">search</span>
+                                    <input class="w-full bg-surface pl-12 pr-4 py-4 border-2 border-on-surface font-body-lg text-body-lg text-on-surface placeholder-secondary focus:outline-none focus:border-primary transition-colors" id="skate-id" placeholder="Digite o ID (ex: SK-402)" type="text">
+                                </div>
+                                <button class="bg-on-surface text-surface px-6 py-4 font-headline-md text-headline-md uppercase border-2 border-on-surface shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all whitespace-nowrap">
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-surface-container-lowest border-2 border-on-surface shadow-brutal flex flex-col">
+                            <div class="bg-on-surface text-surface px-6 py-3 border-b-2 border-on-surface flex justify-between items-center">
+                                <span class="font-headline-md text-headline-md uppercase">Detalhes da Sessão</span>
+                                <span class="bg-primary-container text-on-primary-container px-2 py-1 text-xs font-bold border border-on-surface">ID: SK-402</span>
+                            </div>
+                            <div class="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="border-l-4 border-primary pl-4">
+                                    <span class="block font-label-sm text-label-sm text-secondary uppercase mb-1">Cliente (CPF)</span>
+                                    <span class="font-body-lg text-body-lg font-bold">123.***.***-89</span>
+                                </div>
+                                <div class="border-l-4 border-primary pl-4">
+                                    <span class="block font-label-sm text-label-sm text-secondary uppercase mb-1">Modelo / Tamanho</span>
+                                    <span class="font-body-lg text-body-lg font-bold">Street Pro / 42</span>
+                                </div>
+                                <div class="border-l-4 border-primary pl-4">
+                                    <span class="block font-label-sm text-label-sm text-secondary uppercase mb-1">Hora Início</span>
+                                    <span class="font-body-lg text-body-lg font-bold">14:30</span>
+                                </div>
+                                <div class="border-l-4 border-primary pl-4">
+                                    <span class="block font-label-sm text-label-sm text-secondary uppercase mb-1">Tempo Decorrido</span>
+                                    <span class="font-headline-md text-headline-md text-primary">02:15:00</span>
+                                </div>
+                            </div>
+
+                            <div class="p-6 border-t-2 border-on-surface bg-surface-container-low flex items-center justify-between">
+                                <div>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <div class="relative flex items-center">
+                                            <input class="street-checkbox sr-only" id="damage-check" type="checkbox">
+                                            <div class="w-6 h-6 border-2 border-on-surface bg-surface flex items-center justify-center transition-colors">
+                                                <svg class="hidden w-4 h-4 text-on-surface" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="square" stroke-linejoin="miter" stroke-width="3"></path></svg>
+                                            </div>
+                                        </div>
+                                        <span class="font-label-bold text-label-bold uppercase text-on-surface group-hover:text-primary transition-colors">Patins Danificado?</span>
+                                    </label>
+                                    <p class="text-sm text-secondary mt-1 ml-9">Adiciona taxa de avaria (R$ 50,00)</p>
+                                </div>
+                                <span class="material-symbols-outlined text-error text-3xl hidden sm:block">build</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direita: Checkout -->
+                    <div class="flex flex-col gap-gutter">
+                        <div class="bg-on-surface text-surface border-2 border-on-surface p-6 shadow-brutal relative overflow-hidden">
+                            <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+                                <span class="font-display-lg text-[150px] leading-none">TOTAL</span>
+                            </div>
+                            <div class="relative z-10">
+                                <span class="block font-label-bold text-label-bold uppercase text-surface-dim mb-2">Total a Pagar</span>
+                                <div class="flex items-start gap-2">
+                                    <span class="font-headline-md text-headline-md text-primary-fixed mt-2">R$</span>
+                                    <span class="font-display-lg text-[80px] leading-none text-primary-fixed-dim tracking-tighter" id="total-value">45,00</span>
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-surface-variant/30 flex flex-col gap-2 font-label-sm text-label-sm text-surface-dim">
+                                    <div class="flex justify-between"><span>Base (2h):</span> <span>R$ 30,00</span></div>
+                                    <div class="flex justify-between"><span>Adicional (15m):</span> <span>R$ 15,00</span></div>
+                                    <div class="flex justify-between hidden text-error-container" id="damage-fee-row"><span>Taxa de Avaria:</span> <span>+ R$ 50,00</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-surface-container-lowest border-2 border-on-surface p-6 shadow-brutal">
+                            <span class="block font-label-bold text-label-bold text-on-surface uppercase mb-4">Forma de Pagamento</span>
+                            <div class="grid grid-cols-1 gap-3">
+                                <label class="cursor-pointer">
+                                    <input checked="" class="street-radio sr-only" name="payment" type="radio" value="pix">
+                                    <div class="flex items-center justify-between p-4 border-2 border-on-surface bg-surface hover:bg-surface-container-highest transition-colors">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined">qr_code_scanner</span>
+                                            <span class="font-label-bold text-label-bold uppercase">PIX</span>
+                                        </div>
+                                        <div class="w-4 h-4 rounded-full border-2 border-current" style="background-color: rgb(27, 28, 28);"></div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input class="street-radio sr-only" name="payment" type="radio" value="card">
+                                    <div class="flex items-center justify-between p-4 border-2 border-on-surface bg-surface hover:bg-surface-container-highest transition-colors">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined">credit_card</span>
+                                            <span class="font-label-bold text-label-bold uppercase">Cartão</span>
+                                        </div>
+                                        <div class="w-4 h-4 rounded-full border-2 border-current"></div>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input class="street-radio sr-only" name="payment" type="radio" value="money">
+                                    <div class="flex items-center justify-between p-4 border-2 border-on-surface bg-surface hover:bg-surface-container-highest transition-colors">
+                                        <div class="flex items-center gap-3">
+                                            <span class="material-symbols-outlined">payments</span>
+                                            <span class="font-label-bold text-label-bold uppercase">Dinheiro</span>
+                                        </div>
+                                        <div class="w-4 h-4 rounded-full border-2 border-current"></div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="w-full py-4 bg-primary-container text-on-primary-container border-2 border-on-surface font-headline-md text-headline-md uppercase tracking-wider hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all shadow-brutal mt-auto flex items-center justify-center gap-3">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Confirmar Encerramento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/encerrar.js"></script>
+</body>
+</html>
