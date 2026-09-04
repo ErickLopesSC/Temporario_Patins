@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Apresentação · Trabalho 02 · Skate Flow</title>
+<title>Projeto de Interface - Aluguel Patins</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -31,30 +31,24 @@
   }
   .slide.dark { background: var(--ink); color: #fcf9f8; }
   .pad { padding: 14mm 14mm 14mm; height: 100%; }
-  h1, h2, h3, .bebas { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; letter-spacing: .02em; line-height: .95; margin: 0; }
+  h1, h2 { font-family: "Bebas Neue", Impact, sans-serif; font-weight: 400; letter-spacing: .02em; line-height: .95; margin: 0; }
   h1 { font-size: 56pt; }
-  h2 { font-size: 34pt; }
+  h2 { font-size: 32pt; }
   .orange { color: var(--orange); }
   .rule { width: 72px; height: 7px; background: var(--orange); margin: 12px 0 14px; }
-  p { font-size: 15pt; line-height: 1.4; margin: 0 0 10px; }
-  .small { font-size: 12.5pt; }
-  .cols { display: grid; grid-template-columns: 1.4fr 0.85fr; gap: 16px; align-items: start; }
-  .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  p { font-size: 16pt; line-height: 1.4; margin: 0 0 10px; }
+  .small { font-size: 14pt; }
+  .cols { display: grid; grid-template-columns: 1.45fr 0.8fr; gap: 16px; align-items: center; }
   .card {
     border: 2.5px solid var(--ink);
     box-shadow: 4px 4px 0 #1b1c1c;
-    padding: 12px 14px;
+    padding: 14px 16px;
     background: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
-  .dark .card { background: #303030; color: #fcf9f8; border-color: #ff6b00; box-shadow: none; }
-  .card h3 { font-size: 16pt; margin: 0 0 4px; color: var(--orange); }
-  .dark .card h3 { color: var(--orange); }
-  .card p { font-size: 12pt; margin: 0; }
-  .why { font-size: 11pt; color: var(--muted); margin-top: 4px; }
-  .dark .why { color: #c8c6c5; }
+  .card p { font-size: 14pt; margin: 0; }
   ul { margin: 0; padding-left: 20px; }
-  li { font-size: 13.5pt; margin-bottom: 8px; }
+  li { font-size: 15pt; margin-bottom: 10px; }
   .shot { width: 100%; border: 2.5px solid var(--ink); display: block; }
   .foot {
     position: absolute; left: 14mm; right: 14mm; bottom: 7mm;
@@ -74,239 +68,107 @@
 
 <section class="slide dark">
   <div class="pad">
-    <div class="badge">Desenvolvimento Web e IHC · Turma A · Trabalho 02</div>
-    <h1>Skate Flow</h1>
-    <p class="orange" style="font-family:'Bebas Neue';font-size:28pt;margin-top:8px;">Projeto de interface do atendente<br>Empresa de aluguel de patins</p>
+    <div class="badge">Desenvolvimento Web e IHC · Turma A</div>
+    <h1>Projeto de Interface</h1>
+    <p class="orange" style="font-family:'Bebas Neue';font-size:32pt;margin-top:8px;">Aluguel Patins</p>
     <div class="rule"></div>
-    <p>Erick Lopes dos Santos Carvalho &nbsp;·&nbsp; Yuri Domingues</p>
-    <p class="small">Prof. Chessman Kennedy Faria Corrêa &nbsp;·&nbsp; 04/09/2026</p>
-    <p class="small" style="margin-top:22px;opacity:.85;">As telas que o atendente vê — e o que do material da disciplina entrou em cada decisão.</p>
+    <p>Skate Flow</p>
+    <p class="small">Erick Lopes dos Santos Carvalho<br>Yuri Domingues</p>
+    <p class="small">Prof. Chessman Kennedy Faria Corrêa · 04 de setembro de 2026</p>
   </div>
-  <div class="foot"><span>Skate Flow</span><span>01 / 10</span></div>
-</section>
-
-<section class="slide">
-  <div class="pad">
-    <div class="badge">Cap. I · A interface é o sistema</div>
-    <h2>O que o atendente precisa fazer</h2>
-    <div class="rule"></div>
-    <div class="cols-3">
-      <div class="card">
-        <h3>Alugar</h3>
-        <p>Consultar o tamanho, informar o preço, gravar CPF, par e hora.</p>
-      </div>
-      <div class="card">
-        <h3>Encerrar</h3>
-        <p>Achar o aluguel, calcular, registrar dano e a forma de pagamento.</p>
-      </div>
-      <div class="card">
-        <h3>Fechar o caixa</h3>
-        <p>Ver totais por forma, conferir, emitir e enviar o relatório.</p>
-      </div>
-    </div>
-    <p class="small" style="margin-top:18px;">Na Unidade 1 a interface é o que o usuário percebe como o sistema. O Trabalho 02 pede projetar essa interface — não o banco, não o servidor. O Início só orienta o expediente.</p>
-  </div>
-  <div class="foot"><span>Três casos de uso do enunciado</span><span>02 / 10</span></div>
+  <div class="foot"><span>Skate Flow</span><span>01 / 6</span></div>
 </section>
 
 <section class="slide">
   <div class="pad" style="padding-top:12mm;">
-    <div class="badge">Tela · Início</div>
+    <div class="badge">Início</div>
     <div class="cols">
       <img class="shot" src="_extract/tela_dashboard.png" alt="Tela inicial">
       <div>
-        <h2>Por que assim</h2>
+        <h2>Tela inicial</h2>
         <div class="rule"></div>
         <div class="card">
-          <h3>Sinal × ruído · Cap. II</h3>
-          <p>O que importa no turno fica grande: estoque, aluguéis, faturamento. O resto não compete.</p>
+          <p>Reúne o que o atendente precisa ver no expediente: patins disponíveis, aluguéis em andamento e o faturamento do dia.</p>
         </div>
         <div class="card">
-          <h3>Reconhecer &gt; relembrar · memória</h3>
-          <p>A lista substitui o maço de fichas. Status tem rótulo, não só cor.</p>
-        </div>
-        <div class="card">
-          <h3>Eficiência · Cap. IX</h3>
-          <p>Dois atalhos no topo: alugar ou encerrar, sem caçar menu.</p>
+          <p>Os botões de alugar e encerrar ficam em destaque para encurtar o caminho até a tarefa.</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="foot"><span>Painel do expediente</span><span>03 / 10</span></div>
+  <div class="foot"><span>Tela inicial</span><span>02 / 6</span></div>
 </section>
 
 <section class="slide">
   <div class="pad" style="padding-top:12mm;">
-    <div class="badge">Tela · Alugar</div>
+    <div class="badge">Alugar</div>
     <div class="cols">
       <img class="shot" src="_extract/tela_alugar.png" alt="Tela de alugar">
       <div>
-        <h2>Por que assim</h2>
+        <h2>Novo aluguel</h2>
         <div class="rule"></div>
         <div class="card">
-          <h3>Modelo mental · Cap. II</h3>
-          <p>Ele já aluga no papel. Os 4 passos copiam a ficha: tamanho, par, CPF, gravar.</p>
+          <p>O fluxo acompanha o atendimento: consultar o tamanho, ver se existe par, registrar o CPF e confirmar a saída.</p>
         </div>
         <div class="card">
-          <h3>Compreensibilidade · Cap. IX</h3>
-          <p>Fica óbvio o quê, onde e quando. Sem jargão de software.</p>
-        </div>
-        <div class="card">
-          <h3>Familiaridade</h3>
-          <p>Preço na confirmação porque o processo pede informar o preço ao cliente.</p>
+          <p>Os passos numerados deixam a ordem visível enquanto o cliente está no balcão.</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="foot"><span>Fluxo principal do caso de uso Alugar</span><span>04 / 10</span></div>
+  <div class="foot"><span>Novo aluguel</span><span>03 / 6</span></div>
 </section>
 
 <section class="slide">
   <div class="pad" style="padding-top:12mm;">
-    <div class="badge">Tela · Encerrar</div>
+    <div class="badge">Encerrar</div>
     <div class="cols">
       <img class="shot" src="_extract/tela_encerrar.png" alt="Tela de encerrar">
       <div>
-        <h2>Por que assim</h2>
+        <h2>Encerrar o aluguel</h2>
         <div class="rule"></div>
         <div class="card">
-          <h3>Menos memorização</h3>
-          <p>O sistema mostra tempo e total. O atendente não soma de cabeça com o cliente na frente.</p>
+          <p>Com o identificador do par, a tela mostra o tempo de uso e o valor a pagar.</p>
         </div>
         <div class="card">
-          <h3>Capacidade de perdoar · Cap. IX</h3>
-          <p>Dano é opcional. Marca, o total sobe. Desmarca, o total volta.</p>
-        </div>
-        <div class="card">
-          <h3>Objetividade e resposta</h3>
-          <p>O efeito da ação aparece na hora. PIX, cartão e dinheiro ficam visíveis antes de confirmar.</p>
+          <p>Se houver dano, a taxa entra no total. A marcação pode ser desfeita e o valor volta ao anterior.</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="foot"><span>Inclui o fluxo do patins danificado</span><span>05 / 10</span></div>
+  <div class="foot"><span>Fim do aluguel</span><span>04 / 6</span></div>
 </section>
 
 <section class="slide">
   <div class="pad" style="padding-top:12mm;">
-    <div class="badge">Tela · Fechar o caixa</div>
+    <div class="badge">Fechar o caixa</div>
     <div class="cols">
       <img class="shot" src="_extract/tela_caixa.png" alt="Tela de caixa">
       <div>
-        <h2>Por que assim</h2>
+        <h2>Fechamento do caixa</h2>
         <div class="rule"></div>
         <div class="card">
-          <h3>Controle · Cap. IX</h3>
-          <p>O sistema soma. O atendente confere o físico e só então confirma. Nada fecha sozinho.</p>
+          <p>Os totais aparecem por forma de pagamento (dinheiro, cartão e pix) e o total do dia.</p>
         </div>
         <div class="card">
-          <h3>Clareza</h3>
-          <p>Dinheiro, cartão e PIX separados — a mesma conta que ele já fazia no papel.</p>
-        </div>
-        <div class="card">
-          <h3>Prioridade das pessoas</h3>
-          <p>“Enviar relatório” continua humano. A tela só tira a soma na mão.</p>
+          <p>O atendente confere os valores, confirma o fechamento e envia o relatório ao proprietário.</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="foot"><span>Totais por forma + emitir / enviar</span><span>06 / 10</span></div>
-</section>
-
-<section class="slide">
-  <div class="pad">
-    <div class="badge">O que se repete em todas as telas</div>
-    <h2>Decisões tiradas do material</h2>
-    <div class="rule"></div>
-    <div class="cols-3">
-      <div class="card">
-        <h3>Usuário · Cap. II</h3>
-        <p>Atendente, uso obrigatório, cliente na frente, pouco treino. Por isso passos curtos, palavra da loja, botões grandes.</p>
-      </div>
-      <div class="card">
-        <h3>GUI e dispositivos · Cap. III</h3>
-        <p>Mouse/toque para ação, teclado só para tamanho, CPF e ID. Alvos grandes: controle de movimento da Unidade 1.</p>
-      </div>
-      <div class="card">
-        <h3>Consistência · Cap. IX</h3>
-        <p>Mesmo menu, mesmo cabeçalho, mesmos botões. O que ele aprende numa tela serve na outra.</p>
-      </div>
-      <div class="card">
-        <h3>Composição · Cap. VI</h3>
-        <p>Cartões agrupam o que é da mesma tarefa. Grade alinhada. Pouca informação por passo.</p>
-      </div>
-      <div class="card">
-        <h3>Simplicidade</h3>
-        <p>Uma tarefa por página. Configurações ficam fora do fluxo do balcão.</p>
-      </div>
-      <div class="card">
-        <h3>Estética com função</h3>
-        <p>Laranja só em ação e valor crítico. Contraste alto para achar o próximo clique no pico.</p>
-      </div>
-    </div>
-  </div>
-  <div class="foot"><span>Capítulos II, III, VI e IX da Unidade 1</span><span>07 / 10</span></div>
-</section>
-
-<section class="slide">
-  <div class="pad">
-    <div class="badge">Aula 5 · Acessibilidade</div>
-    <h2>A interface também é limitação humana</h2>
-    <div class="rule"></div>
-    <div class="cols" style="grid-template-columns: 1fr 1.05fr; align-items:center;">
-      <div>
-        <div class="card">
-          <h3>Diferenças individuais · Cap. II</h3>
-          <p>Visão, idade, uma das mãos. Fonte grande, contraste escuro em fundo claro, alvos amplos.</p>
-        </div>
-        <div class="card">
-          <h3>Não depender só da cor</h3>
-          <p>Status tem texto: Pronto, Em andamento, Concluído. Daltonismo não quebra a leitura.</p>
-        </div>
-        <div class="card">
-          <h3>Mesmo fluxo no tablet</h3>
-          <p>Balcão pode ser desktop ou tela estreita. A tarefa não muda — só o arranjo.</p>
-        </div>
-      </div>
-      <img class="shot" src="_extract/tela_dashboard_mobile.png" alt="Início no celular" style="max-height:118mm;width:auto;max-width:100%;margin:0 auto;">
-    </div>
-  </div>
-  <div class="foot"><span>Rótulo nos campos · lang pt-BR · botões grandes</span><span>08 / 10</span></div>
-</section>
-
-<section class="slide">
-  <div class="pad">
-    <div class="badge">Como mostrar agora</div>
-    <h2>Três cliques no protótipo</h2>
-    <div class="rule"></div>
-    <div class="cols-3">
-      <div class="card">
-        <h3>Alugar</h3>
-        <p>Tamanho → consultar → CPF → preço → gravar. Se perguntarem o passo 4a: sem o tamanho, o resultado fica indisponível.</p>
-      </div>
-      <div class="card">
-        <h3>Encerrar</h3>
-        <p>ID do par → marcar dano e o total vai a R$ 95 → PIX → confirmar.</p>
-      </div>
-      <div class="card">
-        <h3>Caixa</h3>
-        <p>Três formas, total do dia, confirmar/emitir e enviar ao dono.</p>
-      </div>
-    </div>
-    <p class="small" style="margin-top:22px;">É protótipo de alta fidelidade. Busca do topo, Configurações e Sair são casca — o escopo do trabalho são estas três tarefas.</p>
-  </div>
-  <div class="foot"><span>Abrir index.html no navegador</span><span>09 / 10</span></div>
+  <div class="foot"><span>Caixa</span><span>05 / 6</span></div>
 </section>
 
 <section class="slide dark">
   <div class="pad">
-    <h1>A tela é o sistema<br>que o atendente vê.</h1>
+    <h1>Conclusão</h1>
     <div class="rule"></div>
-    <p>Projetamos a partir do usuário, dos casos de uso e dos princípios da Unidade 1.</p>
-    <p style="margin-top:28px;">Erick Lopes dos Santos Carvalho &nbsp;·&nbsp; Yuri Domingues</p>
-    <p class="small orange">Perguntas</p>
+    <p>Este trabalho apresenta o projeto da interface do sistema de aluguel de patins.</p>
+    <p>As telas cobrem as três tarefas do atendente: alugar, encerrar o aluguel e fechar o caixa.</p>
+    <p>A interface segue o fluxo que a loja já realiza no papel, agora no computador.</p>
+    <p style="margin-top:28px;">Erick Lopes dos Santos Carvalho<br>Yuri Domingues</p>
   </div>
-  <div class="foot"><span>Desenvolvimento Web e IHC · Trabalho 02</span><span>10 / 10</span></div>
+  <div class="foot"><span>Skate Flow</span><span>06 / 6</span></div>
 </section>
 
 </body>
