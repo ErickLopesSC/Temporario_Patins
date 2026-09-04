@@ -15,8 +15,16 @@
   html, body { margin: 0; padding: 0; background: #2a2a2a; font-family: Montserrat, Arial, sans-serif; }
   @page { size: 338.67mm 190.5mm; margin: 0; }
   @media print {
-    body { background: white; }
-    .slide { margin: 0; box-shadow: none; page-break-after: always; break-after: page; }
+    html, body { background: white; width: 338.67mm; height: 190.5mm; }
+    .slide {
+      margin: 0 !important;
+      box-shadow: none;
+      width: 338.67mm;
+      height: 189mm;
+      page-break-after: always;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
     .slide:last-child { page-break-after: auto; }
   }
   .slide {
