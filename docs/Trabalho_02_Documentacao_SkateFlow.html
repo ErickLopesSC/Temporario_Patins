@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Trabalho 02 — Projeto de Interface · Skate Flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1b1c1c;
+    --muted: #5a4136;
+    --orange: #ff6b00;
+    --orange-deep: #a04100;
+    --paper: #fcf9f8;
+    --line: #1b1c1c;
+    --soft: #f0eded;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #e4e2e1;
+    color: var(--ink);
+    font-family: Montserrat, "Segoe UI", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.55;
+  }
+  @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+  @media print {
+    html, body { background: white; }
+    .page { box-shadow: none; margin: 0; page-break-after: always; min-height: auto; }
+    .page:last-child { page-break-after: auto; }
+    .no-break { break-inside: avoid; page-break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    background: var(--paper);
+    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover {
+    background: var(--ink);
+    color: #fcf9f8;
+    padding: 22mm 18mm 16mm;
+    min-height: 297mm;
+  }
+  .eyebrow {
+    font-size: 10pt;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--orange);
+  }
+  h1, h2, h3, .display {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: 1.05;
+    margin: 0;
+  }
+  .display { font-size: 58pt; }
+  .cover h1 { font-size: 42pt; margin-top: 18px; max-width: 15ch; }
+  .cover .rule { height: 8px; width: 92px; background: var(--orange); margin: 22px 0 26px; }
+  .meta { font-size: 11pt; line-height: 1.7; }
+  .meta strong { color: #fff; }
+  .cover-foot {
+    position: absolute;
+    left: 18mm; right: 18mm; bottom: 16mm;
+    display: flex; justify-content: space-between; gap: 24px;
+    border-top: 2px solid #ff6b00;
+    padding-top: 14px;
+    font-size: 10pt;
+  }
+  .content { padding: 16mm 16mm 18mm; }
+  h2 { font-size: 28pt; margin: 0 0 8px; }
+  h3 { font-size: 16pt; margin: 16px 0 6px; color: var(--orange-deep); }
+  p { margin: 0 0 10px; }
+  .lead { font-size: 12pt; color: var(--muted); }
+  .kicker {
+    font-size: 9pt; font-weight: 700; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--orange-deep); margin-bottom: 4px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 10pt; margin: 8px 0 14px; }
+  th, td { border: 1.5px solid var(--ink); padding: 7px 8px; text-align: left; vertical-align: top; }
+  th { background: var(--ink); color: #fff; font-size: 9pt; letter-spacing: .06em; text-transform: uppercase; }
+  tr:nth-child(even) td { background: #f6f3f2; }
+  ul, ol { margin: 0 0 12px 18px; padding: 0; }
+  li { margin-bottom: 4px; }
+  .box {
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 #1b1c1c;
+    padding: 12px 14px;
+    margin: 10px 0 14px;
+    background: #fff;
+  }
+  .box.orange { background: #ff6b00; color: #1b1c1c; }
+  .shot {
+    width: 100%;
+    border: 2px solid var(--ink);
+    display: block;
+    margin: 8px 0 6px;
+  }
+  .caption { font-size: 9pt; color: var(--muted); margin-bottom: 12px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .card {
+    border: 2px solid var(--ink);
+    padding: 10px 12px;
+    background: #fff;
+  }
+  .card b { display: block; font-size: 9pt; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+  .diag { width: 100%; border: 2px solid var(--ink); background: #fff; }
+  .footer-num {
+    position: absolute; bottom: 8mm; right: 16mm;
+    font-size: 9pt; color: #8e7164;
+  }
+  .toc a { color: inherit; text-decoration: none; }
+  .toc td { border: none; padding: 5px 0; border-bottom: 1px solid #e2bfb0; }
+  .toc tr:nth-child(even) td { background: transparent; }
+  .small { font-size: 10pt; }
+  .note { font-size: 9.5pt; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<section class="page cover">
+  <div class="eyebrow">Desenvolvimento Web e IHC · Turma A</div>
+  <div class="display" style="margin-top:28px;color:#ff6b00;">Trabalho 02</div>
+  <h1>Projeto de Interface<br>Sistema de Aluguel de Patins</h1>
+  <div class="rule"></div>
+  <p class="meta">
+    Sistema <strong>Skate Flow</strong> — protótipo de alta fidelidade da interface do atendente,
+    elaborado a partir do estudo de caso, dos processos e dos casos de uso fornecidos.
+  </p>
+  <div class="box" style="background:#303030;color:#fcf9f8;border-color:#ff6b00;box-shadow:none;margin-top:28px;">
+    <p style="margin:0;"><strong>Dupla</strong><br>Erick Lopes dos Santos Carvalho<br>Yuri</p>
+    <p style="margin:12px 0 0;"><strong>Professor</strong><br>Chessman Kennedy Faria Corrêa</p>
+    <p style="margin:12px 0 0;"><strong>Entrega e apresentação</strong><br>04 de setembro de 2026</p>
+  </div>
+  <div class="cover-foot">
+    <div>Documentação do projeto de interface<br>Trabalho em dupla · preferencialmente em PDF</div>
+    <div style="text-align:right;">Protótipo: index / alugar / encerrar / fechar-caixa</div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">Documento</div>
+    <h2>Sumário e identificação</h2>
+    <p class="lead">Este PDF é a documentação do Trabalho 02. O protótipo acompanha o repositório e deve ser apresentado em sala.</p>
+    <table class="no-break">
+      <tr><th style="width:34%">Item</th><th>Conteúdo</th></tr>
+      <tr><td>Disciplina</td><td>Desenvolvimento Web e Interação Humano-Computador</td></tr>
+      <tr><td>Professor</td><td>Chessman Kennedy Faria Corrêa</td></tr>
+      <tr><td>Turma</td><td>A · Aulas 1 a 5 (IHC, Usuários, Dispositivos, Criação de Interface, Acessibilidade)</td></tr>
+      <tr><td>Enunciado</td><td>Estudo de Caso — Empresa de Aluguel de Patins · Exercício: projetar a interface</td></tr>
+      <tr><td>Produto</td><td>Protótipo de interface web para o atendente (Skate Flow)</td></tr>
+      <tr><td>Escopo</td><td>Três casos de uso: Alugar Patins, Encerrar Aluguel e Fechar o Caixa</td></tr>
+    </table>
+    <table class="toc">
+      <tr><td>1. Introdução e objetivo</td><td style="text-align:right">3</td></tr>
+      <tr><td>2. O usuário e o contexto de uso</td><td style="text-align:right">3</td></tr>
+      <tr><td>3. Dispositivos de entrada e saída</td><td style="text-align:right">4</td></tr>
+      <tr><td>4. Processos da empresa e o que automatizar</td><td style="text-align:right">4</td></tr>
+      <tr><td>5. Casos de uso e diagrama de contexto</td><td style="text-align:right">5</td></tr>
+      <tr><td>6. Objetivos e princípios de design aplicados</td><td style="text-align:right">6</td></tr>
+      <tr><td>7. Telas projetadas</td><td style="text-align:right">7</td></tr>
+      <tr><td>8. Acessibilidade, protótipo e conclusão</td><td style="text-align:right">11</td></tr>
+    </table>
+    <div class="box orange no-break">
+      <b>Como ler este trabalho.</b>
+      O enunciado pede o <em>projeto da interface</em>, não um sistema com banco de dados.
+      As telas são um protótipo de alta fidelidade: mostram o fluxo do atendente, o vocabulário da loja
+      e as decisões de IHC das aulas. Os dados exibidos são exemplos de operação.
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">1 · Introdução</div>
+    <h2>Por que esta interface existe</h2>
+    <p>A empresa controla o aluguel em fichas de papel: o atendente pergunta o número do calçado, procura o par, anota CPF, identificação do patins e hora de início. Na devolução, calcula o valor, verifica dano, registra o pagamento. No fim do dia, soma as formas de pagamento e envia o relatório ao proprietário.</p>
+    <p>Na Unidade 1, a interface é o que o usuário percebe como o próprio sistema — o que pode ser visto, ouvido e tocado. Rotinas internas não importam se a tela atrapalha a tarefa. O exercício do Trabalho 02 é projetar essa interface a partir dos processos e dos casos de uso, na perspectiva do atendente.</p>
+    <div class="box no-break">
+      <b>Objetivo do projeto.</b> Reduzir trabalho visual, intelectual, de memorização e motor (objetivos do design de interface, Cap. IX), substituindo a ficha de papel por uma GUI web que o atendente use enquanto conversa com o cliente.
+    </div>
+    <div class="kicker">2 · O usuário</div>
+    <h2>Quem usa e em que condições</h2>
+    <p>O ator único do diagrama de contexto é o <strong>atendente</strong>. Não projetamos para o cliente final nem para o proprietário como usuários diretos: o cliente fala com o atendente; o proprietário recebe o relatório.</p>
+    <table class="no-break">
+      <tr><th>Aspecto (Cap. II)</th><th>Perfil adotado</th><th>Implicação na interface</th></tr>
+      <tr><td>Uso do sistema</td><td>Obrigatório, contínuo no expediente</td><td>Tarefas curtas, ações principais sempre visíveis</td></tr>
+      <tr><td>Experiência de tarefa</td><td>Alta (já sabe alugar no papel)</td><td>Vocabulário da loja: tamanho, CPF, par, caixa</td></tr>
+      <tr><td>Experiência de sistema</td><td>Baixa a média em software novo</td><td>Passos numerados, poucos jargões de TI</td></tr>
+      <tr><td>Digitação</td><td>Mista; atendimento com o cliente na frente</td><td>Campos grandes, botões grandes, pouca troca teclado/mouse</td></tr>
+      <tr><td>Estresse</td><td>Moderado a alto em horário de pico</td><td>Contraste alto, estados óbvios, prevenção de erro</td></tr>
+      <tr><td>Treinamento</td><td>Pouco ou nenhum formal</td><td>Reconhecer em vez de relembrar; layout estável</td></tr>
+    </table>
+    <p class="note">Modelo mental de partida: a ficha de papel. A interface imita essa ficha (consultar tamanho → registrar CPF e par → encerrar com valor e forma de pagamento → fechar o dia), para a tela parecer natural e reduzir resistência ao aprendizado.</p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">3 · Dispositivos</div>
+    <h2>Entrada, saída e tipo de interface</h2>
+    <p>A interface é uma <strong>GUI web</strong> (janelas/páginas, botões, campos, ícones, menus laterais). O mecanismo primário é o apontar (mouse ou dedo no toque), com teclado para CPF, tamanho e identificadores — dados curtos, típicos do balcão.</p>
+    <div class="grid-2 no-break">
+      <div class="card">
+        <b>Entrada</b>
+        Teclado (tamanho, CPF, ID do par), mouse ou toque (consultar, gravar, marcar dano, escolher pagamento). Botões com área ampla e borda de 2px, alinhados ao controle de movimento da Unidade 1: alvos pequenos e bordas de 1px prejudicam a operação.
+      </div>
+      <div class="card">
+        <b>Saída</b>
+        Monitor (disponibilidade, dados da sessão, total, totais do caixa). Relatório do fechamento é a saída que o atendente confere e envia ao proprietário. Não há interface só por prompt: o atendimento exige reconhecimento visual rápido.
+      </div>
+    </div>
+    <p>Desktop é o contexto principal (caixa da loja). As telas também se reorganizam em viewport estreita (menu hambúrguer, ações empilhadas), caso o balcão use tablet.</p>
+    <div class="kicker" style="margin-top:18px;">4 · Processos</div>
+    <h2>Do papel para a tela</h2>
+    <p>Os diagramas de atividade do enunciado marcam em amarelo o que pode ser automatizado. A interface cobre exatamente essas atividades, sem esconder o que continua humano (entregar o par, conferir dano, receber o dinheiro, enviar o relatório).</p>
+    <div class="grid-3 no-break">
+      <div>
+        <img class="diag" src="_extract/diagram_0_675x722.png" alt="Diagrama de atividade do início do aluguel">
+        <p class="caption">4.1 Entrega do par — consultar, informar preço, registrar aluguel.</p>
+      </div>
+      <div>
+        <img class="diag" src="_extract/diagram_1_437x907.png" alt="Diagrama de atividade do fim do aluguel">
+        <p class="caption">4.2 Devolução — calcular total, dano, informar valor, registrar pagamento.</p>
+      </div>
+      <div>
+        <img class="diag" src="_extract/diagram_2_218x343.png" alt="Diagrama de atividade do fechamento de caixa">
+        <p class="caption">4.3 Caixa — somar por forma de pagamento, registrar, enviar ao dono.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">5 · Casos de uso</div>
+    <h2>A interface na perspectiva do atendente</h2>
+    <p>Casos de uso descrevem requisitos funcionais pela interação do usuário com o sistema, não pela visão do desenvolvedor. O diagrama de contexto delimita o que está dentro do software.</p>
+    <div class="no-break" style="max-width:70%;margin:0 auto 10px;">
+      <img class="diag" src="_extract/diagram_3_367x267.png" alt="Diagrama de contexto com o atendente e três casos de uso">
+      <p class="caption" style="text-align:center;">Figura — Diagrama de contexto: um ator, três casos de uso.</p>
+    </div>
+    <table class="no-break">
+      <tr><th>Caso de uso</th><th>Tela</th><th>O que o sistema faz na interface</th></tr>
+      <tr>
+        <td><b>Alugar Patins</b></td>
+        <td>alugar.html</td>
+        <td>Verifica disponibilidade pelo número do calçado; mostra o par (ID, tamanho, estado); pede CPF; grava início, par e CPF; deixa o par indisponível. Fluxo 4a: informa que não há par daquele tamanho.</td>
+      </tr>
+      <tr>
+        <td><b>Encerrar Aluguel</b></td>
+        <td>encerrar.html</td>
+        <td>Pede o ID do par; mostra início, par, CPF, tempo e total; aceita a marca de dano (acrescenta taxa e recalcula); registra forma de pagamento; confirma encerramento e devolve o par ao estoque.</td>
+      </tr>
+      <tr>
+        <td><b>Fechar o Caixa</b></td>
+        <td>fechar-caixa.html</td>
+        <td>Mostra total de cada forma de pagamento e o total final; o atendente confere; confirma e emite o relatório; envia ao proprietário.</td>
+      </tr>
+    </table>
+    <p class="small">A tela Início (index.html) não é um quarto caso de uso: é o ponto de orientação do dia (patins livres, aluguéis ativos, faturamento e atalhos). Reduz memorização e encurta a navegação até Alugar e Encerrar.</p>
+    <div class="box no-break">
+      <b>Correspondência com o fluxo principal.</b>
+      Em Alugar, os passos 3–11 do enunciado viram: campo de tamanho → Consultar → cartão do par → CPF → Gravar aluguel.
+      Em Encerrar, os passos 2–12 viram: buscar ID → detalhes + total → checkbox de dano → PIX/Cartão/Dinheiro → Confirmar.
+      Em Fechar o Caixa, os passos 13–18 viram: totais por forma → conferência → Confirmar e emitir / Enviar relatório.
+    </div>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">6 · Design de interface</div>
+    <h2>Princípios da Unidade 1 aplicados</h2>
+    <p>O design combina entrada e saída para a tarefa do atendente, de forma natural. A usabilidade é o requisito não funcional principal; os casos de uso são a referência funcional (Cap. IX).</p>
+    <table class="no-break">
+      <tr><th>Princípio</th><th>Como aparece no Skate Flow</th></tr>
+      <tr><td>Estética</td><td>Contraste laranja/preto/off-white, alinhamento em grade de 8px, agrupamento em cartões, pouco ruído visual.</td></tr>
+      <tr><td>Clareza</td><td>Palavras da loja (Alugar, Encerrar, Fechar caixa, Patins danificado). Sem jargão de banco de dados.</td></tr>
+      <tr><td>Compreensibilidade</td><td>Passos 1–4 no aluguel deixam óbvio o que fazer, onde e quando.</td></tr>
+      <tr><td>Consistência</td><td>Mesma sidebar, mesmo cabeçalho, mesmos botões e bordas em todas as páginas.</td></tr>
+      <tr><td>Controle</td><td>Nada grava sozinho: Consultar, Gravar, Confirmar e Emitir só disparam com ação explícita.</td></tr>
+      <tr><td>Objetividade</td><td>Ações principais visíveis (Novo, Encerrar). Efeito da taxa de avaria é visível no total.</td></tr>
+      <tr><td>Eficiência</td><td>Atalhos no Início e botão Novo na sidebar. Pouca troca de tela no mesmo caso de uso.</td></tr>
+      <tr><td>Familiaridade</td><td>Metáfora da ficha + caixa: CPF, hora, forma de pagamento, relatório do dia.</td></tr>
+      <tr><td>Capacidade de perdoar</td><td>Dano é opcional e reversível (o total volta). Campos com rótulo e exemplo (Ex: 40, SK-402).</td></tr>
+      <tr><td>Previsibilidade</td><td>Cartão laranja de confirmação antecipa o que será gravado (preço, hora, ID).</td></tr>
+      <tr><td>Simplicidade</td><td>Uma tarefa por tela de caso de uso. Configurações ficam no rodapé, fora do fluxo crítico.</td></tr>
+      <tr><td>Prioridade</td><td>O ritmo do balcão vale mais que “telas extras”: o caminho feliz cabe em uma página.</td></tr>
+    </table>
+    <p>Composição visual (Cap. VI): balanceamento em duas colunas, regularidade dos cartões, agrupamento por proximidade (Gestalt da aula de percepção), quantidade de informação limitada ao passo corrente. Reconhecer (ícones + rótulos) supera relembrar códigos.</p>
+    <p class="note">Identidade: <strong>Skate Flow</strong> é o nome do produto da loja de patins (inline/quad). Laranja de sinalização urbana marca só ação primária e valores críticos, para a visão periférica apontar o próximo alvo sem virar ruído.</p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">7.1 · Início</div>
+    <h2>Painel do expediente</h2>
+    <img class="shot" src="_extract/tela_dashboard.png" alt="Tela inicial com indicadores e aluguéis recentes">
+    <p class="caption">Figura — Início em desktop. Três sinais do dia e a lista que substitui o maço de fichas abertas.</p>
+    <ul>
+      <li><strong>Sinal × ruído:</strong> 42/50, 08 aluguéis e R$ 340,00 são sinal. Decoração mínima.</li>
+      <li><strong>Eficiência:</strong> Encerrar aluguel e Novo aluguel no topo, além do menu.</li>
+      <li><strong>Status reconhecível:</strong> “Em andamento” versus “Concluído”, sem exigir memorizar código.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">7.2 · Alugar Patins</div>
+    <h2>Do tamanho ao registro</h2>
+    <img class="shot" src="_extract/tela_alugar.png" alt="Tela de novo aluguel com quatro passos">
+    <p class="caption">Figura — Fluxo principal do caso de uso Alugar Patins, incluindo o preço informado ao cliente.</p>
+    <table class="no-break">
+      <tr><th>Passo na tela</th><th>Passo do caso de uso</th></tr>
+      <tr><td>1. Tamanho + Consultar</td><td>Atendente solicita ao sistema verificar disponibilidade</td></tr>
+      <tr><td>2. Resultado (par, ID, Pronto)</td><td>Sistema informa disponibilidade; atendente fala com o cliente</td></tr>
+      <tr><td>3. CPF e nome</td><td>Atendente solicita e informa o CPF</td></tr>
+      <tr><td>4. Preço, hora, ID + Gravar</td><td>Sistema grava par, hora e CPF e torna o par indisponível</td></tr>
+    </table>
+    <p>O preço na confirmação cobre a atividade amarela “informar o preço ao cliente”. O fluxo alternativo 4a (sem par naquele tamanho) usa o mesmo cartão de Resultado, com estado Indisponível e sem liberar a gravação — o atendente encerra o caso de uso sem inventar um caminho novo.</p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">7.3 · Encerrar Aluguel</div>
+    <h2>Devolução, dano e pagamento</h2>
+    <img class="shot" src="_extract/tela_encerrar.png" alt="Tela de encerrar aluguel com total e formas de pagamento">
+    <p class="caption">Figura — Encerrar: busca pelo ID, sessão, taxa de avaria, total e forma de pagamento.</p>
+    <ul>
+      <li>O sistema pede o identificador do par e devolve início, CPF, tempo e total — o atendente não recalcula de cabeça.</li>
+      <li>Fluxo 6a: marcar “Patins danificado?” inclui R$ 50,00 e redesenha o total (capacidade de resposta + objetividade).</li>
+      <li>PIX, Cartão e Dinheiro são a forma de pagamento do caso de uso; a seleção é explícita antes de confirmar.</li>
+    </ul>
+    <div class="kicker" style="margin-top:16px;">7.4 · Fechar o Caixa</div>
+    <h2>Conferência do dia</h2>
+    <img class="shot" src="_extract/tela_caixa.png" alt="Tela de relatório de fechamento de caixa">
+    <p class="caption">Figura — Totais por forma de pagamento, total final, confirmar/emitir e enviar ao proprietário.</p>
+    <p>O enunciado pede que o sistema disponibilize o total de cada forma e o total final; o atendente confere (ainda compara com o dinheiro físico); depois confirma. “Enviar relatório” é a atividade que permanece humana no diagrama (caixa branca), agora apoiada pela interface.</p>
+  </div>
+</section>
+
+<section class="page">
+  <div class="content">
+    <div class="kicker">8 · Acessibilidade e fechamento</div>
+    <h2>Limitações humanas e do protótipo</h2>
+    <p>A aula de 04/09 trata criação de interface e acessibilidade. Diferenças individuais (Cap. II) incluem visão, idade e uso com uma das mãos. Decisões já presentes no protótipo:</p>
+    <ul>
+      <li><strong>Contraste e tipo:</strong> texto escuro em superfície clara; títulos grandes (Bebas Neue); corpo em Montserrat 16px.</li>
+      <li><strong>Não depender só da cor:</strong> status tem rótulo (“Pronto”, “Em andamento”) além da cor.</li>
+      <li><strong>Alvos:</strong> botões de ação com padding amplo; checkbox e rádios com área clicável no cartão inteiro.</li>
+      <li><strong>Rótulos:</strong> campos de tamanho, CPF e ID associados a <code>label for</code>.</li>
+      <li><strong>Idioma:</strong> <code>lang="pt-BR"</code> em todas as páginas.</li>
+      <li><strong>Responsivo:</strong> o mesmo fluxo cabe no telefone/tablet do balcão.</li>
+    </ul>
+    <img class="shot" src="_extract/tela_dashboard_mobile.png" alt="Dashboard em viewport estreita" style="max-width:46%;">
+    <p class="caption">Figura — Início em viewport móvel: ações empilhadas, mesmos cartões de sinal.</p>
+    <h3>O que o protótipo ainda não implementa</h3>
+    <p>Este é um protótipo de interface, não o sistema em produção. Ficam fora do escopo do Trabalho 02: persistência real, autenticação, busca global e as ações de Configurações/Sair. Mensagens de confirmação e o estado “sem patins” devem ser os próximos incrementos de usabilidade (capacidade de resposta e de perdoar).</p>
+    <h3>Conclusão</h3>
+    <p>A interface cobre os três casos de uso e as atividades amarelas dos processos, na linguagem do atendente. As decisões seguem os princípios da Unidade 1 — especialmente consistência, clareza, eficiência e prioridade das pessoas sobre o aparato técnico. O papel some da mesa; o diálogo com o cliente permanece.</p>
+    <div class="box no-break">
+      <b>Referências da disciplina.</b>
+      Corrêa, C. K. F. <em>Interação Humano-Computador</em> — Unidade 1 (capítulos I a IX).<br>
+      Corrêa, C. K. F. <em>Estudo de Caso — Empresa de Aluguel de Patins</em> (Trabalho 02).<br>
+      Plano de aulas IHC Web 2026 · Turma A.
+    </div>
+    <p class="note">Protótipo no repositório: index.html, alugar.html, encerrar.html, fechar-caixa.html, css/styles.css, js/layout.js, js/encerrar.js.</p>
+  </div>
+</section>
+
+</body>
+</html>
